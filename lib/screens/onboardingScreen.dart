@@ -31,7 +31,7 @@ class OnboardingScreen extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     Text(
-                      'Structures médicales  \nproches de chez vous',
+                      'MON CENTRE',
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 32,
@@ -42,7 +42,8 @@ class OnboardingScreen extends StatelessWidget {
                       height: 20,
                     ),
                     Text(
-                      'Lorem ipsum dolor amet, consectetur\nadipiscing inet deli',
+                      'Application de geolocalisation\ndes cliniques de Côte d\'Ivoire'
+                          ,
                       style: TextStyle(
                         fontSize: 16,
                         color: kTitleTextColor.withOpacity(0.7),

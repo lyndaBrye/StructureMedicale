@@ -5,8 +5,6 @@ import 'doctorCard.dart';
 import 'navDrawer.dart';
 
 class clinicaList extends StatefulWidget {
-  const clinicaList({Key? key}) : super(key: key);
-
   @override
   State<clinicaList> createState() => _clinicaListState();
 }

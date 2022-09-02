@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:untitled/screens/home.dart';
+import 'package:flutter/src/material/dropdown.dart';
 import 'package:untitled/screens/mapScreen.dart';
 
 import '../components/scheduleCard.dart';
 import '../constant.dart';
+import 'mapCard.dart';
 class researchScreen extends StatefulWidget {
 
   @override
@@ -13,30 +15,26 @@ class researchScreen extends StatefulWidget {
 }
 
 class _researchScreenState extends State<researchScreen> {
-  String dropdownvalue = 'cardiologie';
+  List<String> listitems = ["Aucune", "Cabinet medical", "Cabinet dentaire", "Clinique", "Polyclinique"];
+  String selectval = "Aucune";
 
-  var items = [
-    'cardiologie',
-    'odonto stomatologie',
-    'dermatologie',
-    'ophtalmologie',
-    'Kynesie Therapie',
-  ];
 
 
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       body: SingleChildScrollView(
         child: Container(
           width: double.infinity,
           decoration: BoxDecoration(
             image: DecorationImage(
-              image: AssetImage('assets/images/detail_illustration.png'),
+              image: AssetImage('assets/images/medecin.jpg'),
               alignment: Alignment.topCenter,
               fit: BoxFit.fitWidth,
             ),
           ),
+
           child: Column(
             children: <Widget>[
               SizedBox(
@@ -101,29 +99,61 @@ class _researchScreenState extends State<researchScreen> {
                               decoration: InputDecoration(
                                 icon: Icon(Icons.location_on),
                                 labelText: 'Point de repere',
+                                
                                 labelStyle: TextStyle(
                                   color: kTitleTextColor,
+                                  
                                 ),
                               ),
                             ),
                             //Bouton de validation
-                            SizedBox(
-                              height: 30.0,
-                            ), TextField(
-                              decoration: InputDecoration(
-                                icon: Icon(Icons.medical_services_outlined),
-                                labelText: 'Catégories',
-                                labelStyle: TextStyle(
-                                  color: kTitleTextColor,
-                                ),
-                              ),
-                            ),
-                            //Bouton de validation
-                            SizedBox(
-                              height: 30.0,
-                            )
 
-                           , ElevatedButton(
+                            //Bouton de validation
+                            SizedBox(
+                              height: 30.0,
+                            ),
+                            Text('Catégories',
+                              style:TextStyle(fontSize: 20,
+                                  color: kTitleTextColor,
+                                  ) ,),
+
+                            SizedBox(
+                              height: 20.0,
+                            ),
+                            DecoratedBox(
+                                decoration: BoxDecoration(
+                                    color:Colors.blue[50], //background color of dropdown button
+                                border: Border.all(color: Colors.black38, width:1), //border of dropdown button
+                                borderRadius: BorderRadius.circular(5), //border raiuds of dropdown button
+                                boxShadow: <BoxShadow>[ //apply shadow on Dropdown button //blur radius of shadow
+                                ]
+                                ),
+                              child: Padding(padding: EdgeInsets.only(left:30, right:30),
+                              child: DropdownButton(
+
+                                items: listitems.map((itemone){return DropdownMenuItem(
+                                    value: itemone,
+                                    child: Text(itemone)
+                                );}).toList(),value: selectval,
+                                onChanged: (value){
+                                  setState(() {
+                                    selectval = value.toString();
+                                  });
+                                },
+                                underline: Container(), //empty line
+                                style: TextStyle(fontSize: 18, color: kTitleTextColor),
+                                dropdownColor: Colors.blue[50],
+                                iconEnabledColor: kBlueColor,
+                              ),
+                            ),
+
+                            ),
+
+
+                            SizedBox(
+                              height: 70.0,
+                            ),
+ ElevatedButton(
                               style: ElevatedButton.styleFrom(
                                 primary: kBlueColor,
                                 shape: StadiumBorder(),
@@ -141,7 +171,7 @@ class _researchScreenState extends State<researchScreen> {
                                 ),
                               ),
                               onPressed: () {
-                                Navigator.of(context).push(MaterialPageRoute(builder: (context) => MapScreen()));
+                                Navigator.of(context).push(MaterialPageRoute(builder: (context) => MyHomePage(title: 'title')));
                               },
                             ),
                           ],

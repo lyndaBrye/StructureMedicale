@@ -107,7 +107,7 @@ class HomeScreen extends StatelessWidget {
             width: 30,
           ),
           CategoryCard(
-            'Soins\nDentaires',
+            'Cabinet\nDentaire',
             'assets/icons/dental_surgeon.png',
             kBlueColor,
           ),
@@ -115,33 +115,28 @@ class HomeScreen extends StatelessWidget {
             width: 10,
           ),
           CategoryCard(
-            'Cardiologie',
-            'assets/icons/heart_surgeon.png',
-            kYellowColor,
+            'Centre\nMedical',
+            'assets/icons/centre.png',
+            kBlueColor,
           ),
           SizedBox(
             width: 10,
           ),
           CategoryCard(
-            'Ophtalmologie',
-            'assets/icons/eye_specialist.png',
+            'Clinique',
+            'assets/icons/hop.png',
             kOrangeColor,
           ),
           SizedBox(
             width: 10,
           ),
           CategoryCard(
-            'Dermatologies',
-            'assets/icons/skin.png',
-            kSearchBackgroundColor,
+            'Polyclinique',
+            'assets/icons/poly.png',
+            kBlueColor,
           ),
           SizedBox(
             width: 10,
-          ),
-          CategoryCard(
-            'Kynesie-therapie',
-            'assets/icons/lego.png',
-            kYellowColor,
           ),
         ],
       ),
